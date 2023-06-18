@@ -4,45 +4,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <h1>Multiplication Quiz</h1>
-        <p id="display"></p> <input type="number" id="output">
-        <p id="answer"></p>
-        <h5 id="aza"></h5>
+    <div class="container">
+        <h1 class="hayone">Multiplication Quiz</h1> <br><br>
+        <h3 id="display"></h3> <input type="number" id="output">
+        <h1 id="answer"></h1>
         <button onclick="Start()">Start</button>
         <button onclick="Check()">Check</button>
         <button onclick="Next()">Next</button>
-        
-
-
     </div>
 
-
-
-
     <script>
-        var NumberA = Math.floor(Math.random()*10)
-        var NumberB =  Math.floor(Math.random()*10)
+        var NumberA = Math.floor(Math.random()*15)
+        var NumberB =  Math.floor(Math.random()*15)
         let result = NumberA*NumberB
 
+        
+
         function Start(){
-            document.getElementById('display').innerHTML = `${NumberA} x ?`
-            document.getElementById('answer').innerHTML = result
             
+            document.getElementById('display').innerHTML = `${NumberA} x ${NumberB}  =`
+           
         }
          function Next(){
           location.reload()
         }
         function Check(){
          const UserIn = document.getElementById("output").value
-         let Divide = eval(result/NumberA)
-         if (Divide == UserIn) {
-           document.getElementById("aza").innerHTML = "Correct"
+         let Multiply = eval(NumberB*NumberA)
+         if (Multiply == UserIn) {
+            document.getElementById("answer").style.color = "green"
+           document.getElementById("answer").innerHTML = "&#128526;correct"
          }
          else{
-            document.getElementById("aza").innerHTML = "wrong"
+            document.getElementById("answer").style.color = "red"
+            document.getElementById("answer").innerHTML = "&#129313; wrong"
          }
 
          
